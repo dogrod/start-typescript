@@ -1,32 +1,46 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div>
+    <input v-model="msg">
+    <p>prop: {{name}}</p>
+    <p>msg: {{msg}}</p>
+    <p>helloMsg: {{helloMsg}}</p>
+    <p>computed msg: {{computedMsg}}</p>
+    <button @click="greet">Greet</button>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+<script lang="ts">
+import { Component, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-property-decorator'
+
+@Component
+export default class Hello extends Vue {
+  // prop decorator by vue-property-decorator
+  @Prop()
+  name: String
+
+  // provide data (initial data)
+  @Provide() msg = 123
+
+  // use prop values for initial data
+  @Provide() helloMsg = 'Hello, ' + this.name
+
+  // lifecycle hook
+  mounted () {
+    this.welecomeFn()
+  }
+
+  // computed
+  get computedMsg () {
+    return 'computed ' + this.msg
+  }
+
+  // method
+  greet () {
+    alert('greeting: ' + this.msg)
+  }
+
+  welecomeFn () {
+    console.log('Welecome Typescript World')
   }
 }
 </script>
