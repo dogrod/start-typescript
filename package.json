@@ -1,6 +1,6 @@
 {
   "name": "start-typescript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple Vue.js project in Typescript",
   "author": "dogrod <rodrickjue@hotmail.com>",
   "private": true,
