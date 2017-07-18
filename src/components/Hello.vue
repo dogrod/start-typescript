@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>your name</p>
     <input v-model="msg">
     <p>prop: {{name}}</p>
     <p>msg: {{msg}}</p>
@@ -22,7 +23,7 @@ export default class Hello extends Vue {
   @Provide() msg = 123
 
   // use prop values for initial data
-  @Provide() helloMsg = 'Hello, ' + this.name
+  @Provide() helloMsg = 'Hello, ' + this.msg
 
   // lifecycle hook
   mounted() {
