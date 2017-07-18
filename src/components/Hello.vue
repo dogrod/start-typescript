@@ -25,21 +25,21 @@ export default class Hello extends Vue {
   @Provide() helloMsg = 'Hello, ' + this.name
 
   // lifecycle hook
-  mounted () {
+  mounted() {
     this.welecomeFn()
   }
 
   // computed
-  get computedMsg () {
+  get computedMsg() {
     return 'computed ' + this.msg
   }
 
   // method
-  greet () {
+  greet() {
     alert('greeting: ' + this.msg)
   }
 
-  welecomeFn () {
+  welecomeFn() {
     console.log('Welecome Typescript World')
   }
 }
@@ -47,7 +47,8 @@ export default class Hello extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 

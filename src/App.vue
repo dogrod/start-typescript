@@ -17,7 +17,7 @@ import { Component, Inject, Model, Prop, Provide, Vue, Watch } from 'vue-propert
   }
 })
 export default class App extends Vue {
-  
+
 }
 // export default {
 //   name: 'app',
